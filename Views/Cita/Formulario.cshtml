@@ -1,0 +1,60 @@
+﻿@using Denthis.Web.Models
+@using Denthis.Core.Entities
+@model CitaModel
+<div class="modal-dialog">
+    <div class="modal-content">
+        <div class="modal-header">
+            <h5 class="modal-title"> Cita </h5>
+        </div>
+        <div class="modal-body">
+            <div class="row">
+                <input id="idCita" value="@Model.Cita.Id" type="hidden" />
+                <div class="col-md-12">
+                    <label>Cliente:</label>
+                    <select class="form-control" id="cliente" onchange="obtenerBeneficiarios()">
+                        @foreach (Cliente c in Model.Cliente)
+                        {
+                            <option value="@c.Id" @if (Model.Cita.Cliente != null) { if (Model.Cita.Cliente.Id == c.Id) { <text> selected</text> } }>@c.Nombre</option>
+                        }
+                    </select>
+
+                </div>
+                <div class="col-md-12">
+                    <label>Beneficiario:</label>
+                    <select class="form-control" id="beneficiario">
+                        <option value="0">Seleccionar...</option>
+                    </select>
+                </div>
+                <div class="col-md-12">
+                    <label>Doctor:</label>
+                    <select class="form-control" id="doctor">
+                        @foreach (Doctor d in Model.Doctor)
+                        {
+                            <option value="@d.Id" @if (Model.Cita.Doctor != null) { if (Model.Cita.Doctor.Id == d.Id) { <text> selected</text> } }>@d.Nombre</option>
+                        }
+                    </select>
+
+                </div>
+                <div class="col-md-12">
+                    <label>Tratamiento:</label>
+                    <select class="form-control" id="tratamiento">
+                        @foreach (Tratamiento t in Model.Tratamiento)
+                        {
+                            <option value="@t.Id" @if (Model.Cita.Tratamiento != null) { if (Model.Cita.Tratamiento.Id == t.Id) { <text> selected</text> } }>@t.Nombre</option>
+                        }
+                    </select>
+
+                </div>
+
+                <div class="col-md-12">
+                    <label>Seleccionar fecha</label>
+                    <input type="text" onkeydown="return false" class="form-control" id="datepicker" data-provide="datepicker" data-date-language="es" />
+                </div>
+            </div>
+        </div>
+        <div class="modal-footer">
+            <a class="btn btn-primary" onclick="guardar()">Guardar</a>
+            <a class="btn btn-link" data-dismiss="modal">Cerrar</a>
+        </div>
+    </div>
+</div>

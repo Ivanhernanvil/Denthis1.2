@@ -1,0 +1,55 @@
+﻿@using Denthis.Web.Models
+@using Denthis.Core.Entities
+@model BeneficiarioModel
+
+<div class="modal-dialog">
+    <div class="modal-content">
+        <div class="modal-header">
+            <h5 class="modal-title"> Beneficiario</h5>
+        </div>
+        <div class="modal-body">
+            <div class="row">
+                <input id="idBeneficiario" value="@Model.Beneficiario.Id" type="hidden" />
+                <div class="col-md-12">
+                    <label>Nombre:</label>
+                    <input type="text" id="nombre" class="form-control" value="@Model.Beneficiario.Nombre" />
+                </div>
+                <div class="col-md-12">
+                    <label>Apellido Paterno:</label>
+                    <input type="text" id="apellidoPaterno" class="form-control" value="@Model.Beneficiario.ApellidoPaterno" />
+                </div>
+                <div class="col-md-12">
+                    <label>Apellido Materno:</label>
+                    <input type="text" id="apellidoMaterno" class="form-control" value="@Model.Beneficiario.ApellidoMaterno" />
+                </div>
+                <div class="col-md-12">
+                    <label>Edad:</label>
+                    <input type="text" id="edad" class="form-control" value="@Model.Beneficiario.Edad" />
+                </div>
+                <div class="col-md-12">
+                    <label>Sexo:</label>
+                    <select class="form-control" id="sexo">
+                        <option value="M">M</option>
+                        <option value="F">F</option>
+
+                    </select>
+
+                </div>
+                <div class="col-md-12">
+                    <label>Cliente:</label>
+                    <select class="form-control" id="cliente">
+                        @foreach (Cliente c in Model.Cliente)
+                        {
+                            <option value="@c.Id" @if (Model.Beneficiario.Cliente != null) { if (Model.Beneficiario.Cliente.Id == c.Id) { <text> selected</text> } }>@c.Nombre</option>
+                        }
+                    </select>
+
+                </div>
+            </div>
+            <div class="modal-footer">
+                <a class="btn btn-primary" onclick="guardar()">Guardar</a>
+                <a class="btn btn-link" data-dismiss="modal">Cerrar</a>
+            </div>
+        </div>
+    </div>
+</div>

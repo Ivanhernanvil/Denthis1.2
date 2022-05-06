@@ -1,0 +1,32 @@
+﻿@using Denthis.Web.Models
+@using Denthis.Core.Entities
+@model ConsultorioModel
+<div class="modal-dialog">
+    <div class="modal-content">
+        <div class="modal-header">
+            <h5 class="modal-title"> Consultorio </h5>
+        </div>
+        <div class="modal-body">
+            <div class="row">
+                <input id="idConsultorio" value="@Model.Consultorio.Id" type="hidden" />
+                <div class="col-md-12">
+                    <label>Nombre:</label>
+                    <input type="text" id="nombre" class="form-control" value="@Model.Consultorio.Nombre" />
+                </div>
+                <div class="col-md-12">
+                    <label>Direccion:</label>
+                    <input type="text" id="direccion" class="form-control" value="@Model.Consultorio.Direccion" />
+                </div>
+                <div class="col-md-12">
+                    <label>Horario:</label>
+                    <input type="text" id="horario" class="form-control" value="@Model.Consultorio.Horario" />
+                </div>
+            </div>
+        </div>
+        <div class="modal-footer">
+            <a class="btn btn-primary" onclick="guardar()">Guardar</a>
+            <a class="btn btn-link" data-dismiss="modal">Cerrar</a>
+        </div>
+    </div>
+</div>
+  

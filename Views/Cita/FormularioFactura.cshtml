@@ -1,0 +1,62 @@
+﻿@using Denthis.Web.Models
+@using Denthis.Core.Entities
+@model List<Cita>
+<div class="modal-dialog">
+    <div class="modal-content">
+        <div class="modal-header">
+            <h3 class="modal-title"> Factura </h3>
+        </div>
+        <div class="modal-body">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="panel panel-default">
+                        <div class="panel-body">
+
+                            <div class="table-responsive">
+                                <table class="table table-striped">
+                                    <thead>
+                                        <tr>
+
+                                            <th>Folio</th>
+                                            <th>Fecha</th>
+                                            <th>Beneficiario</th>
+                                            <th>Tratamiento</th>
+                                            <th>Precio</th>
+
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+
+                                        @foreach (Cita ci in Model)
+                                        {
+                                            <tr>
+
+                                                <td>@ci.Folio</td>
+                                                <td>@ci.Fecha</td>
+                                                <td>@ci.Beneficiario.Nombre</td>
+                                                <td>@ci.Tratamiento.Nombre</td>
+                                                <td>@ci.Tratamiento.Precio</td>
+                                              
+                                                
+                                            </tr>
+
+                                        }
+
+
+
+
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                    <h3>Se ha generado la factura, proceda a total</h3>
+                </div>
+            </div>
+        </div>
+        <div class="modal-footer">
+            
+            <a class="btn btn-link" data-dismiss="modal">Cerrar</a>
+        </div>
+    </div>
+</div>

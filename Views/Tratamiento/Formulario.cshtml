@@ -1,0 +1,27 @@
+﻿@using Denthis.Web.Models
+@using Denthis.Core.Entities
+@model TratamientoModel
+<div class="modal-dialog">
+    <div class="modal-content">
+        <div class="modal-header">
+            <h5 class="modal-title"> Tratamiento</h5>
+        </div>
+        <div class="modal-body">
+            <div class="row">
+                <input id="idTratamiento" value="@Model.Tratamiento.Id" type="hidden" />
+                <div class="col-md-12">
+                    <label>Nombre:</label>
+                    <input type="text" id="nombre" class="form-control" value="@Model.Tratamiento.Nombre" />
+                </div>
+                <div class="col-md-12">
+                    <label>Precio:</label>
+                    <input type="text" id="precio" class="form-control" value="@Model.Tratamiento.Precio" />
+                </div>
+            </div>
+        </div>
+        <div class="modal-footer">
+            <a class="btn btn-primary" onclick="guardar()">Guardar</a>
+            <a class="btn btn-link" data-dismiss="modal">Cerrar</a>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,37 @@
+﻿@using Denthis.Web.Models
+@using Denthis.Core.Entities
+@model DoctorModel
+<div class="modal-dialog">
+    <div class="modal-content">
+        <div class="modal-header">
+            <h5 class="modal-title"> Doctor </h5>
+        </div>
+        <div class="modal-body">
+            <div class="row">
+                <input id="idDoctor" value="@Model.Doctor.Id" type="hidden" />
+                <div class="col-md-12">
+                    <label>Nombre:</label>
+                    <input type="text" id="nombre" class="form-control" value="@Model.Doctor.Nombre" />
+                </div>
+                <div class="col-md-12">
+                    <label>Especialidad:</label>
+                    <input type="text" id="especialidad" class="form-control" value="@Model.Doctor.Especialidad" />
+                </div>
+                <div class="col-md-12">
+                    <label>Consultorio:</label>
+                    <select class="form-control" id="consultorio">
+                        @foreach(Consultorio co in Model.Consultorio)
+                         {
+                        <option value="@co.Id" @if (Model.Doctor.Consultorio != null) { if (Model.Doctor.Consultorio.Id == co.Id) { <text>selected</text> } }>@co.Nombre</option>
+                         }
+                    </select>
+
+                </div>
+            </div>
+        </div>
+        <div class="modal-footer">
+            <a class="btn btn-primary" onclick="guardar()">Guardar</a>
+            <a class="btn btn-link" data-dismiss="modal">Cerrar</a>
+        </div>
+    </div>
+</div>
